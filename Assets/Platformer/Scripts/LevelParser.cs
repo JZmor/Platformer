@@ -38,6 +38,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject deathPrefab;
+    public GameObject goalPrefab;
 
     // --------------------------------------------------------------------------
     void Start()
@@ -84,23 +86,33 @@ public class LevelParser : MonoBehaviour
                 // Todo - Parent the new GameObject under levelRoot
                 if (letters[col] == 'x')
                 {
-                    Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0f);
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
                     GameObject newObj = Instantiate(rockPrefab, environmentRoot);
                     newObj.transform.position = pos;
                 } else if (letters[col] == 'b')
                 {
-                    Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0f);
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
                     GameObject newObj = Instantiate(brickPrefab, environmentRoot);
                     newObj.transform.position = pos;
                 } else if (letters[col] == '?')
                 {
-                    Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0f);
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
                     GameObject newObj = Instantiate(questionBoxPrefab, environmentRoot);
                     newObj.transform.position = pos;
                 } else if (letters[col] == 's')
                 {
-                    Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0f);
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
                     GameObject newObj = Instantiate(stonePrefab, environmentRoot);
+                    newObj.transform.position = pos;
+                } else if (letters[col] == 'p')
+                {
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
+                    GameObject newObj = Instantiate(deathPrefab, environmentRoot);
+                    newObj.transform.position = pos;
+                } else if (letters[col] == 'g')
+                {
+                    Vector3 pos = new Vector3(col - 0.5f, row + 0.5f, 0f);
+                    GameObject newObj = Instantiate(goalPrefab, environmentRoot);
                     newObj.transform.position = pos;
                 }
             }

@@ -8,6 +8,8 @@ TagManager:
   - Stone
   - Rock
   - '?'
+  - Instant Death
+  - Goal
   layers:
   - Default
   - TransparentFX
